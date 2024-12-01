@@ -1,0 +1,160 @@
+/* Стили для контейнера добавления задачи */
+.container-add {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    padding: 20px;
+    height: 100vh; /* Занимает всю высоту экрана */
+    justify-content: center; /* Центрирует содержимое по вертикали */
+}
+
+.main-title {
+    font-size: 60px; /* Увеличен размер шрифта */
+    margin-bottom: 40px; /* Увеличен отступ снизу */
+    color: #000000;
+    text-align: center;
+}
+
+.button {
+    background-color: #2f2cfe;
+    border-radius: 30px;
+    padding: 15px 25px; /* Увеличены отступы для кнопки */
+    font-size: 20px; /* Увеличен размер шрифта */
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: auto;
+    margin-bottom: 20px; /* Увеличен отступ снизу */
+}
+
+.button.reverse {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.enter {
+    width: 90%; /* Ширина поля ввода увеличена */
+    padding: 15px; /* Увеличены отступы */
+    font-size: 18px; /* Увеличен размер шрифта */
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+/* Модальное окно */
+dialog {
+    width: 90%;
+    max-width: 400px;
+    border-radius: 10px;
+    padding: 30px; /* Увеличены отступы */
+    background-color: #ffffff;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+dialog h2 {
+    font-size: 26px; /* Увеличен размер шрифта */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+dialog menu {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+#task-dialog button {
+    padding: 12px 20px; /* Увеличены отступы для кнопок в модальном окне */
+    font-size: 18px; /* Увеличен размер шрифта */
+    border-radius: 5px;
+}
+
+/* Адаптивность для планшетов и мобильных устройств */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 40px; /* Увеличен размер для планшетов */
+    }
+
+    .button {
+        width: 100%;
+        font-size: 18px; /* Увеличен размер шрифта */
+    }
+
+    dialog h2 {
+        font-size: 22px; /* Увеличен размер для планшетов */
+    }
+
+    .enter {
+        padding: 12px; /* Увеличены отступы для планшетов */
+        font-size: 16px; /* Увеличен размер шрифта */
+    }
+
+    dialog menu {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    a {
+        display: flex;
+        justify-content:center; 
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 32px; /* Увеличен размер для мобильных устройств */
+    }
+
+    .button {
+        font-size: 18px; /* Увеличен размер для мобильных устройств */
+        padding: 15px; /* Увеличены отступы для кнопки */
+    }
+
+    dialog {
+        width: 90%;
+        max-width: 400px; /* Устанавливаем максимальную ширину */
+        margin: auto; /* Центрируем модальное окно */
+    }
+
+    dialog h2 {
+        font-size: 20px; /* Увеличен размер для мобильных устройств */
+    }
+
+    .enter {
+        font-size: 16px; /* Увеличен размер шрифта */
+        padding: 12px; /* Увеличены отступы для поля ввода */
+    }
+}
+
+
+
+
+
+dialog {
+    position: fixed; /* Фиксированное позиционирование для центра */
+    top: 50%; /* Относительно центра по вертикали */
+    left: 50%; /* Относительно центра по горизонтали */
+    transform: translate(-50%, -50%); /* Смещение на половину ширины и высоты */
+    width: 90%;
+    max-width: 400px;
+    border-radius: 10px;
+    padding: 30px; /* Увеличены отступы */
+    background-color: #ffffff;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+    z-index: 10; /* Установите, чтобы окно было поверх остальных элементов */
+}
+
+
+
+.delete-btn {
+    background-color: #ff0000;
+    border-radius: 30px;
+    padding: 15px 25px; /* Увеличены отступы для кнопки */
+    font-size: 20px; /* Увеличен размер шрифта */
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: auto;
+    margin-bottom: 20px; /* Увеличен отступ снизу */
+  }
