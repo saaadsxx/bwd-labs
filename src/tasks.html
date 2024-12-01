@@ -47,6 +47,11 @@
         <div class="table-info">
           <h1 class="main-title">Задачи</h1>
           <button id="open-dialog-btn" class="button">Добавить задачу</button>
+
+          
+          <button id="export-calendar-btn" class="button">Экспортировать в календарь</button>
+
+
         </div>
       </div>
       <div class="container">
@@ -69,6 +74,12 @@
     <dialog id="task-dialog">
       <form method="dialog">
         <input type="text" id="task-input" name="task" placeholder="Введите текст задачи" required />
+        <input type="date" id="task-date-input" name="date" required />
+        <input type="time" id="task-start-time-input" name="startTime" required />
+        <input type="time" id="task-end-time-input" name="endTime" required />
+        
+
+
         <menu>
           <button id="submit-task-btn" class="button" type="button">Добавить</button>
           <button id="close-dialog-btn" class="button" type="button">Отмена</button>
@@ -76,20 +87,7 @@
       </form>
     </dialog>
     
-
-  <!-- Модальное окно для комментариев -->
-  <dialog id="commentModal">
-    <form method="dialog">
-      <h2>Комментарии к задаче</h2>
-      <ul id="comment-list"></ul>
-      <input type="text" id="new-comment" placeholder="Введите комментарий" />
-      <menu>
-        <button id="add-comment-btn" class="button" type="button">Добавить</button>
-        <button id="close-comment-modal" class="button" type="button">Закрыть</button>
-      </menu>
-    </form>
-  </dialog>
-  <script defer src="scripts/modal.js"></script>
-  <script defer src="bundle.js"></script>   
+    <script defer src="scripts/modal.js"></script>
+    <script defer src="bundle.js"></script>   
   </body>
 </html>
