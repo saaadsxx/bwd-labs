@@ -1,0 +1,368 @@
+/* Общие настройки */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Убираем проблемы с размерами элементов */
+}
+
+body {
+  background-color: #ffffff;
+  font-family: "TT Norms", sans-serif;
+  overflow-x: hidden; /* Убираем горизонтальную прокрутку */
+}
+
+/* Основной контейнер */
+.container {
+  width: 100%; /* Убираем максимальную ширину */
+  padding: 0 15px; /* Отступы для адаптации */
+  box-sizing: border-box; /* Учитываем отступы в общей ширине */
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column; /* Элементы идут сверху вниз */
+  align-items: center; /* Центрируем элементы по горизонтали */
+  justify-content: center; /* Центрируем элементы по вертикали */
+  min-height: 100vh; /* Высота основного содержимого - вся высота окна */
+  padding: 20px; /* Добавляем немного внутреннего отступа */
+  padding-top: 260px;
+  width: 100%; /* Обеспечиваем, чтобы контейнер не выходил за экран */
+  box-sizing: border-box;
+}
+
+/* Header (шапка сайта) */
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  padding: 20px 0; /* Увеличьте отступ сверху и снизу */
+  z-index: 1000;
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  max-width: 150px; /* Ограничиваем размер логотипа */
+}
+
+.header-burger-btn {
+  display: none; /* Скрываем по умолчанию */
+  position: absolute; /* Используем абсолютное позиционирование */
+  top: 15px; /* Устанавливаем расстояние от верхней части контейнера */
+  right: 15px; /* Позиция справа (при необходимости) */
+  width: 40px;
+  height: 40px;
+  border: none;
+  z-index: 2;
+  background-color: transparent;
+}
+
+.header-burger-btn span {
+  position: absolute;
+  width: 30px;
+  height: 3px;
+  background-color: black;
+  left: 5px;
+  transition: transform 0.5s, opacity 0.5s;
+}
+
+.header-burger-btn span:nth-child(1) {
+  transform: translateY(-10px);
+}
+
+.header-burger-btn span:nth-child(3) {
+  transform: translateY(10px);
+}
+
+.header.open .header-burger-btn span:nth-child(1) {
+  transform: translateY(0) rotate(45deg);
+}
+
+.header.open .header-burger-btn span:nth-child(2) {
+  opacity: 0;
+}
+
+.header.open .header-burger-btn span:nth-child(3) {
+  transform: translateY(0) rotate(-45deg);
+}
+
+/* Навигация */
+.navigation {
+  margin-left: 0; /* Убираем фиксированные отступы */
+}
+
+.navigation-list {
+  list-style: none;
+  display: flex;
+  gap: 50px; /* Пространство между элементами */
+  /*flex-wrap: wrap; /* Позволяем элементам переноситься на новые строки */
+  /*justify-content: center; */
+}
+
+.navigation-item a {
+  font-size: 16px;
+  line-height: 130%;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 8px;
+  background-color: #2f2cfe;
+  color: white;
+  /*transition: background-color 0.3s; /* Плавный переход фона */
+}
+
+.navigation-item .navigation-selected {
+  background-color: #ffffff;
+  color: black;
+  cursor: default;
+}
+
+.navigation-item .navigation-selected:hover {
+  background-color: #ffffff;
+  color: black;
+}
+
+.navigation-item a:hover {
+  background-color: #4e28f5;
+}
+
+.button {
+  background-color: #4e28f5;
+  border-radius: 60px;
+  padding: 12px;
+  text-align: center;
+  font-size: 18px;
+  color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Плавный переход фона */
+}
+
+.button:hover {
+  background-color: #4e28f5;
+}
+
+.delete-btn {
+  background-color: #e62828;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Плавный переход фона */
+}
+
+.delete-btn:hover {
+  background-color: #9e0f0f;
+}
+
+/* Основное содержимое */
+.main-table {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap; /* Разрешаем элементам располагаться в несколько строк */
+  justify-content: space-between; /* Одинаковое расстояние между колонками */
+  gap: 20px;
+  padding: 10px;
+  background-color: #f3f3f3;
+  border-radius: 8px;
+  align-items: flex-start; /* Карточки не растягиваются по высоте */
+}
+
+.task-column {
+  max-height: 500px; /* Лимит высоты для колонок */
+  overflow-y: auto; /* Добавляем прокрутку */
+  width: 100%; /* Убираем фиксированную ширину, делаем колонку адаптивной */
+  max-width: 300px; /* Ограничиваем максимальную ширину */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Расстояние между задачами */
+}
+
+.task-column h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Задачи */
+.task-item {
+  display: flex;
+  align-items: flex-start; /* Выравнивание элементов по верхнему краю */
+  gap: 10px; /* Расстояние между чекбоксом, текстом и кнопками */
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  width: 100%;
+  flex-wrap: nowrap; /* Элементы остаются в одной строке */
+  overflow: hidden; /* Убираем выход элементов за границы */
+  min-height: 60px; /* Минимальная высота карточки задачи */
+  flex-shrink: 0; /* Запрещаем карточке сжиматься */
+}
+
+.task-item input[type="checkbox"] {
+  flex-shrink: 0; /* Чекбокс не сжимается */
+  margin-top: 4px; /* Для вертикального выравнивания */
+  align-self: flex-start; /* Чекбокс остается на своем месте */
+}
+
+.task-item .task-text {
+  flex-grow: 1; /* Текст занимает оставшееся пространство */
+  word-wrap: break-word; /* Перенос длинных слов */
+  overflow-wrap: break-word; /* Совместимость с другими браузерами */
+  white-space: normal; /* Разрешаем перенос текста */
+  margin: 0; /* Убираем лишние отступы */
+  line-height: 1.5; /* Удобочитаемость текста */
+  min-width: 0; /* Позволяем тексту сужаться */
+  width: 100%; /* Убираем ограничение по ширине */
+}
+
+.task-item .task-actions {
+  display: flex;
+  flex-direction: column; /* Кнопки располагаются вертикально */
+  gap: 8px; /* Расстояние между кнопками */
+  flex-shrink: 0; /* Кнопки не сжимаются */
+  align-items: flex-end; /* Выравниваем кнопки по правому краю */
+  align-self: flex-start; /* Кнопки остаются на одном уровне с верхом текста */
+}
+
+.task-item button {
+  margin-left: auto; /* Перемещаем кнопку удаления вправо */
+}
+
+.task-item.completed {
+  background-color: rgba(255, 255, 255, 0.2); /* Зеленый фон для завершенных задач */
+}
+
+/* Медиа-запросы для мобильных устройств */
+@media (max-width: 768px) {
+  .header-burger-btn {
+    display: block; /* Показываем бургер на экранах меньше 768px */
+  }
+
+  .main-content {
+    margin-bottom: 200px;
+    position: absolute;
+    left: 20%;
+    top: 200px;
+    width: 80%; /* Делаем контейнер уже на мобильных устройствах */
+  }
+  
+
+  .navigation {
+    position: absolute;
+    left: -100%;
+    top: 0;
+    background-color: #ffffff;
+    width: 100%;
+    height: 100vh;
+    transition: transform 0.5s;
+  }
+
+  .navigation-list {
+    flex-direction: column; /* Элементы меню идут в колонку */
+    gap: 20px;
+    padding: 60px 20px 20px 20px;
+  }
+
+  .navigation-item {
+    width: 100%; /* Ширина на весь экран */
+    text-align: center; /* Центрирование текста */
+  }
+
+  .main-title {
+    font-size: 60px;
+  }
+
+  .main-text {
+    font-size: 16px;
+  }
+
+  .main-image {
+    max-width: 80%;
+    margin-top: 20px;
+  }
+
+  .main-table {
+    display: block;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .task-column {
+    width: 100%; /* Задачи занимают всю ширину на мобильных устройствах */
+  }
+
+  .task-item {
+    flex-direction: column; /* Раскладываем элементы вертикально */
+    text-align: center;
+  }
+  .header.open .navigation {
+    transform: translateX(100%);
+  }
+}
+
+.table-info {
+  display: flex;
+  flex-direction: column; /* Ставим элементы в столбик */
+  align-items: center; /* Выравнивание по горизонтали */
+  gap: 20px; /* Отступы между заголовком и кнопкой */
+}
+
+.table-info .main-title {
+  text-align: center;
+}
+
+#open-dialog-btn {
+  align-self: center; /* Центрируем кнопку относительно контейнера */
+}
+
+
+/* Обновленный стиль для колонок */
+.task-column {
+  max-height: 500px;
+  overflow-y: auto;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px; /* Отступ внутри столбца */
+  background-color: #e9ecef; /* Светлый фон для колонок */
+  border: 2px solid #ccc; /* Рамка вокруг каждого столбца */
+  border-radius: 8px; /* Закругленные углы */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Легкая тень */
+}
+
+.task-column h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+  border-bottom: 2px solid #ccc; /* Разделитель под заголовком */
+  padding-bottom: 5px; /* Отступ для текста */
+}
+
+/* Расстояние между колонками */
+.main-table {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px; /* Расстояние между столбцами */
+  padding: 10px;
+  background-color: #f3f3f3;
+  border-radius: 8px;
+  align-items: flex-start;
+}
+

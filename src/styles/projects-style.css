@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+}
+
+.main-content {
+  display: flex;
+  align-items: center; /* Центрируем по вертикали */
+  justify-content: center; /* Центрируем по горизонтали */
+  height: 100vh; /* Высота секции — 100% от высоты экрана */
+  background-color: #ffffff; /* Добавьте при необходимости фон */
+}
+
+.main-content img {
+  max-width: 90%; /* Ограничиваем ширину изображения для мобильных */
+  height: auto; /* Сохраняем пропорции изображения */
+}

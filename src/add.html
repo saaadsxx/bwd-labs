@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Добавлено для адаптивности -->
+    <title>Добавка</title>
+    <link rel="stylesheet" href="styles/add.css">
+    <script defer src="scripts/storage.js"></script>
+    <script defer src="scripts/modal.js"></script>
+  </head>
+  <body>
+    <section class="main-content container-add">
+      <h1 class="main-title">Добавить новую задачу</h1>
+      <button class="button" id="open-dialog-btn">Добавить</button>
+      <a href="tasks.html" class="button reverse">Вернуться</a>
+    </section>
+
+    <!-- Модальное окно -->
+    <dialog id="task-dialog">
+      <form method="dialog">
+        <h2>Новая задача</h2>
+        <input id="task-input" type="text" placeholder="Введите задачу" class="enter">
+        <menu>
+          <button class="button" id="submit-task-btn">Добавить</button>
+          <button class="button" id="close-dialog-btn">Отмена</button>
+        </menu>
+      </form>
+    </dialog>
+
+    <script src="bundle.js"></script>
+  </body>
+</html>

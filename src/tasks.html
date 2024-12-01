@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Список задач</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/tasks-style.css" />
+    <link rel="stylesheet" href="styles/add.css" />
+    <link
+      rel="shortcut icon"
+      href="images/favicon-32x32.ico"
+      type="image/x-icon"
+    />
+    <script defer src="scripts/burger.js"></script>
+    <link rel="icon" href="images/favicon-32x32.ico" type="Image/x-icon" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <button class="header-burger-btn" id="burger">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="logo">
+          <img src="images/logo.png" alt="Logo" class="Logo" />
+        </div>
+        <nav class="navigation">
+          <ul class="navigation-list">
+            <li class="navigation-item">
+              <a href="main.html">Главная</a>
+            </li>
+            <li class="navigation-item">
+              <a href="projects.html" class="button">Проекты</a>
+            </li>
+            <li class="navigation-item">
+              <a class="navigation-selected button">Список задач</a>
+            </li>
+            <li class="navigation-item">
+              <a href="about.html">О приложении</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section class="main-content">
+      <div class="container">
+        <div class="table-info">
+          <h1 class="main-title">Задачи</h1>
+          <button id="open-dialog-btn" class="button">Добавить задачу</button>
+        </div>
+      </div>
+      <div class="container">
+        <div class="main-table">
+          <div id="todo-column" class="task-column">
+            <h2>Задачи</h2>
+          </div>
+        
+          <div id="in-progress-column" class="task-column">
+            <h2>В процессе</h2>
+          </div>
+        
+          <div id="done-column" class="task-column">
+            <h2>Выполнены</h2>
+          </div>
+        </div>        
+        </div>
+      </div>
+    </section>
+    <dialog id="task-dialog">
+      <form method="dialog">
+        <input type="text" id="task-input" name="task" placeholder="Введите текст задачи" required />
+        <menu>
+          <button id="submit-task-btn" class="button" type="button">Добавить</button>
+          <button id="close-dialog-btn" class="button" type="button">Отмена</button>
+        </menu>
+      </form>
+    </dialog>
+    
+
+  <!-- Модальное окно для комментариев -->
+  <dialog id="commentModal">
+    <form method="dialog">
+      <h2>Комментарии к задаче</h2>
+      <ul id="comment-list"></ul>
+      <input type="text" id="new-comment" placeholder="Введите комментарий" />
+      <menu>
+        <button id="add-comment-btn" class="button" type="button">Добавить</button>
+        <button id="close-comment-modal" class="button" type="button">Закрыть</button>
+      </menu>
+    </form>
+  </dialog>
+  <script defer src="scripts/modal.js"></script>
+  <script defer src="bundle.js"></script>   
+  </body>
+</html>
